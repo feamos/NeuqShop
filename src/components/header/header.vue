@@ -6,7 +6,7 @@
         <router-link to="/" tag="span">主页</router-link>
       </li>
       <li class="tab-item">
-        <router-link to="/goods" tag="span">二手</router-link>
+        <router-link to="/oldgoods" tag="span">二手</router-link>
       </li>
       <li class="tab-item">
         <router-link to="/messages" tag="span">留言</router-link>
