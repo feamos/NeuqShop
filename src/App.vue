@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import Heade from './components/header/header.vue'
+  import Heade from './components/header.vue'
   export default {
     name: 'app',
     data () {

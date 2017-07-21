@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <a class="brand"><img src="./img/logo.png"/></a>
+    <a class="brand"><img src="../img/header/logo.png"/></a>
     <ul class="tab">
       <li class="tab-item">
         <router-link to="/" tag="span">主页</router-link>
@@ -22,8 +22,8 @@
       </li>
     </ul>
     <span class="login" v-show="!userName">
-        <router-link to="/register"><img src="./img/登录.png" alt="登录"></router-link>
-        <router-link to="/signUp"><img src="./img/注册.png" alt="注册"></router-link>
+        <router-link to="/register"><img src="../img/header/登录.png" alt="登录"></router-link>
+        <router-link to="/signUp"><img src="../img/header/注册.png" alt="注册"></router-link>
       </span>
     <span class="user" v-show="userName">
         hello! {{userName}}
@@ -63,7 +63,7 @@
     text-align: center;
     line-height: 75px;
     color: #009efd;
-    background: url("./img/bg.png") no-repeat center;
+    background: url("../img/header/bg.png") no-repeat center;
   }
   .header ul, li{
     display: inline-block;

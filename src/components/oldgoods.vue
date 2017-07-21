@@ -3,64 +3,64 @@
     <div class="top-nav">
       <div class="left">
         <input class="search" v-model="searchtext" type="text" @keyup.enter="keyenter">
-        <router-link to="/search" class="search_icon" ><img src="./img/search-icon.png" ref="searchDom" alt="搜索"></router-link>
-        <a class="sell" @click="toSell"><img src="./img/sell.png" alt="卖二手商品"></a>
+        <router-link to="/search" class="search_icon" ><img src="../img/goods/search-icon.png" ref="searchDom" alt="搜索"></router-link>
+        <a class="sell" @click="toSell"><img src="../img/goods/sell.png" alt="卖二手商品"></a>
       </div>
       <span class="right">
         <ul>
           <li>
             <router-link to="/study">
               <div  @mouseenter="showActive(1)"  @click="selectActive(1)"   @mouseleave="hideActive()">
-                <img src="./img/study.png" alt="学习">
-                <img v-show="active === 1 || current === 1" class="hide_tab" src="./img/study_1.png" alt="学习">
+                <img src="../img/goods/study.png" alt="学习">
+                <img v-show="active === 1 || current === 1" class="hide_tab" src="../img/goods/study_1.png" alt="学习">
               </div>
             </router-link>
           </li>
           <li>
             <router-link to="/life">
               <div @mouseenter="showActive(2)"  @click="selectActive(2)" @mouseleave="hideActive()">
-                <img src="./img/life.png" alt="生活">
-                <img v-show="active === 2 || current === 2" class="hide_tab" src="./img/life_1.png" alt="生活">
+                <img src="../img/goods/life.png" alt="生活">
+                <img v-show="active === 2 || current === 2" class="hide_tab" src="../img/goods/life_1.png" alt="生活">
               </div>
             </router-link>
           </li>
           <li>
             <router-link to="/sport">
               <div @mouseenter="showActive(3)"   @click="selectActive(3)" @mouseleave="hideActive()">
-                <img src="./img/sport.png" alt="运动">
-                <img v-show="active === 3 || current === 3" class="hide_tab" src="./img/sport_1.png" alt="运动">
+                <img src="../img/goods/sport.png" alt="运动">
+                <img v-show="active === 3 || current === 3" class="hide_tab" src="../img/goods/sport_1.png" alt="运动">
               </div>
             </router-link>
           </li>
           <li>
             <router-link to="/clothes">
               <div @mouseenter="showActive(4)"  @click="selectActive(4)" @mouseleave="hideActive()">
-                <img src="./img/clothes.png" alt="服饰">
-                <img v-show="active === 4 || current === 4" class="hide_tab" src="./img/clothes_1.png" alt="服饰">
+                <img src="../img/goods/clothes.png" alt="服饰">
+                <img v-show="active === 4 || current === 4" class="hide_tab" src="../img/goods/clothes_1.png" alt="服饰">
               </div>
             </router-link>
           </li>
           <li>
             <router-link to="/hat">
               <div @mouseenter="showActive(5)"   @click="selectActive(5)" @mouseleave="hideActive()">
-                <img src="./img/hat.png" alt="鞋帽">
-                <img v-show="active === 5 || current === 5" class="hide_tab" src="./img/hat_1.png" alt="鞋帽">
+                <img src="../img/goods/hat.png" alt="鞋帽">
+                <img v-show="active === 5 || current === 5" class="hide_tab" src="../img/goods/hat_1.png" alt="鞋帽">
               </div>
             </router-link>
           </li>
           <li>
             <router-link to="/food">
               <div @mouseenter="showActive(6)"  @click="selectActive(6)" @mouseleave="hideActive()">
-                <img src="./img/food.png" alt="食品">
-                <img v-show="active === 6 || current === 6" class="hide_tab" src="./img/food_1.png" alt="食品">
+                <img src="../img/goods/food.png" alt="食品">
+                <img v-show="active === 6 || current === 6" class="hide_tab" src="../img/goods/food_1.png" alt="食品">
               </div>
             </router-link>
           </li>
           <li>
             <router-link to="/other">
               <div @mouseenter="showActive(7)"   @click="selectActive(7)" @mouseleave="hideActive()">
-                <img src="./img/other.png" alt="其它">
-                <img v-show="active === 7 || current === 7" class="hide_tab" src="./img/other_1.png" alt="其他">
+                <img src="../img/goods/other.png" alt="其它">
+                <img v-show="active === 7 || current === 7" class="hide_tab" src="../img/goods/other_1.png" alt="其他">
               </div>
             </router-link>
           </li>
@@ -112,7 +112,7 @@
 
 <style scoped>
   .top-nav {
-    padding-left: 350px;
+    padding-left: 340px;
     padding-right: 150px;
     mrigin:0 auto;
   }
@@ -121,7 +121,7 @@
     height: 104px;
     position: absolute;
     float: left;
-    background: url("./img/search.png") no-repeat;
+    background: url("../img/goods/search.png") no-repeat;
   }
   .search {
     width: 260px;
@@ -171,7 +171,16 @@
     bottom: 0;
     left: 0;
   }
-  @media (max-height: 800px),(max-width:1000px) {
+  /*@media (max-height: 962px),(max-width: 1920px) {*/
+    /*.top-nav {*/
+      /*padding-left: 340px;*/
+      /*padding-right: 150px;*/
+    /*}*/
+    /*ul {*/
+      /*padding-left: 200px;*/
+    /*}*/
+  /*}*/
+  @media (max-width: 1366px) {
     .top-nav {
       padding-left: 100px;
       padding-right: 0px;
