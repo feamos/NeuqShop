@@ -13,16 +13,7 @@ const state = {
   index: 0,
   currentIndex: 0,
   // new-goods
-  goods: [
-    {name: '风扇', price: 10, sort: '生活', desc: 'usb小风扇'},
-    {name: '键盘', price: 20, sort: '娱乐', desc: '机械键盘'},
-    {name: '鼠标', price: 5, sort: '娱乐', desc: '游戏鼠标'},
-    {name: '自行车', price: 39, sort: '运动', desc: '山地自行车'},
-    {name: 'sdjf', price: 23, sort: '食品', desc: '贼好吃'},
-    {name: 'sdifjs', price: 32, sort: '生活'},
-    {name: 'sdifoij', price: 43, sort: '鞋帽'},
-    {name: 'isdjfos', price: 32, sort: '生活'},
-    {name: 'ijfoiwj', price: 90, sort: '服饰'}
+  newGoods: [
   ],
   timer: '',
   currentindex: 0
@@ -45,20 +36,20 @@ const mutations = {
   },
   last () {
     if (state.currentIndex === 0) {
-      state.currentIndex = state.goods.length
+      state.currentIndex = state.newGoods.length
     }
     state.currentIndex -= 3
-    console.log(state.goods)
+    console.log(state.newGoods)
   },
   next () {
     state.currentIndex += 3
-    if (state.currentIndex > state.goods.length - 1) {
+    if (state.currentIndex > state.newGoods.length - 1) {
       state.currentIndex = 0
     }
   },
   autoPlay () {
     state.currentIndex += 3
-    if (state.currentIndex > state.goods.length - 1) {
+    if (state.currentIndex > state.newGoods.length - 1) {
       state.currentIndex = 0
     }
   }
@@ -69,7 +60,19 @@ const actions = {
   beginnext (context) {
     context.state.timer = setInterval(() => {
       context.commit('autoPlay')
-    }, 1000)
+    }, 4000)
+  },
+  huode (context) {
+    fetch('http://neuq.shop:8082/campus/getGoodsByNew', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }).then((res) => res.json())
+      .then((json) => {
+        console.log(json)
+        context.state.newGoods = json
+      })
   }
 }
 export default new Vuex.Store({

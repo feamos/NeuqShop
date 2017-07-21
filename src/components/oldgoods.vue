@@ -74,13 +74,16 @@
 
 <script>
   import store from '@/vuex/store.js'
-  import { mapState, mapMutations } from 'vuex'
+  import { mapState, mapMutations, mapActions } from 'vuex'
   export default {
     name: 'oldgoods',
     data () {
       return {
         msg: 'old goods'
       }
+    },
+    mounted () {
+      this.huode()
     },
     computed: {
       ...mapState(['searchtext', 'active', 'index']),
@@ -95,6 +98,7 @@
     },
     methods: {
       ...mapMutations(['showActive', 'selectActive', 'hideActive']),
+      ...mapActions(['huode']),
       keyenter () {
         this.$refs.searchDom.click()
       },

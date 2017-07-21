@@ -3,11 +3,11 @@
 <template>
   <div class="good_component">
     <a href="" @mouseenter="showDetail" @mouseleave="hideDetail">
-      <img :src="'http://localhost/my/goodsPicture/' + goodDetail.goodPicture0 " alt="加入图片地址接口">
+      <img :src="'http://neuq.shop:8082/campus/goodsPicture/' + goodDetail.goodPicture0 " alt="加入图片地址接口">
     </a>
     <div class="nameAndPrice">
-      <span>{{goodDetail.name}}</span>
-      <span>￥{{goodDetail.price}}</span>
+      <span class="nameleft">{{goodDetail.goodName}}</span>
+      <span>￥{{goodDetail.goodPrice}}</span>
     </div>
     <div class="goodType">
       <span>{{goodDetail.goodSort}}</span>
@@ -17,14 +17,13 @@
       <div class="detailDesc">
         <a href="" class="descTitle">详细描述</a>
         <a href="" class="desc" v-show="!goodDetail.desc">主人太懒啦，什么也没有留下~</a>
-        <a href="" class="desc" v-show="goodDetail.desc">{{goodDetail.desc}}</a>
+        <a href="" class="desc" v-show="goodDetail.desc">{{goodDetail.Desc}}</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
   export default{
     props: {
       goodDetail: {
@@ -69,11 +68,18 @@
     z-index: 20;
   }
   .nameAndPrice span {
-    font-size: 1.3rem;
-    color: #009efd;
-    margin-left: 9px;
+    font-size: 18px;
+    padding-left: 5px;
+    text-align: right;
+    width:47%;
+    display: inline-block;
+    color: blue;
     height: 35px;
     line-height: 35px;
+  }
+  .nameAndPrice .nameleft {
+    padding-left: 5px;
+    text-align: left;
   }
 
   .goodType {
@@ -88,8 +94,11 @@
   .goodType span {
     height: 35px;
     line-height: 35px;
-    font-size: 1.8rem;
-    margin-left: 9px;
+    font-size: 18px;
+    margin-left: 0px;
+    display: inline-block;
+    width: 80%;
+    text-align: left;
     color: #fff;
   }
   .dim {
@@ -108,14 +117,13 @@
   }
   .descTitle {
     color: #009efd;
-    font-size: 1.8rem;
-    margin-left: 132px;
+    font-size: 18px;
   }
   .desc {
     display: block;
-    color: #3e3e3e;
-    font-size:1.8rem;
+    font-size: 18px;
     margin: 30px 36px;
+    color: #3e3e3e;
     line-height: 2.8rem;
   }
 </style>
