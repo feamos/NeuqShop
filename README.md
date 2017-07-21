@@ -1,6 +1,6 @@
 # neuqshop
 
-> A Vue.js project
+> Vue + vue-router + vuex
 
 ## Build Setup
 
