@@ -69,10 +69,11 @@
     display: inline-block;
   }
   .header li {
-    padding: 0 30px 0 30px;
+    padding: 0 40px 0 40px;
+    font-size: 24px;
   }
   .brand {
-    padding-right: 110px;
+    padding-right: 10px;
   }
   .tab {
     vertical-align: middle;

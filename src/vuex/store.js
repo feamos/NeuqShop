@@ -5,16 +5,17 @@ Vue.use(Vuex)
 const state = {
   // header组件
   head: {
-    userName: '冯沛栋'
+    userName: ''
   },
   // oldgoods
   searchtext: '',
   active: 1,
   index: 0,
-  currentIndex: 0,
   // new-goods
-  newGoods: [
-  ],
+  currentIndex: 0,
+  clickmore: true,
+  newGoods: [],
+  ninegoods: [],
   timer: '',
   currentindex: 0
 }
@@ -62,6 +63,17 @@ const actions = {
       context.commit('autoPlay')
     }, 4000)
   },
+  more () {
+    this.clickmore = false
+    this.$http.get('http://localhost/my/GetNewGoodsServlet?count=30')
+      .then(response => {
+        this.ninegoods = response.data
+        console.log(this.ninegoods)
+      }, error => {
+        console.log(error)
+      })
+  },
+  // oldgoods
   huode (context) {
     fetch('http://neuq.shop:8082/campus/getGoodsByNew', {
       method: 'GET',

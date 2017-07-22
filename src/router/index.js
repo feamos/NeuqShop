@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Home from '../components/home.vue'
 import Oldgoods from '../components/oldgoods.vue'
 import newgoods from '@/components/new-goods.vue'
+import Register from '../components/register.vue'
+import signIn from '../components/signIn.vue'
+import signUp from '../components/signUp.vue'
 // import searchgoods from '@/components/search_goods/search_goods.vue'
 import study from '@/components/study.vue'
 // import life from '@/components/life/life.vue'
@@ -20,6 +23,16 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register,
+      children: [
+        {path: '/', redirect: '/signIn'},
+        {path: '/signIn', component: signIn},
+        {path: '/signUp', component: signUp}
+      ]
     },
     {
       path: '/oldgoods',

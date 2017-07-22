@@ -36,18 +36,13 @@
         this.beginnext()
       })
     },
-//    mounted () {
-//      this.$nextTick(() => {
-//        this.beginnext()
-//      })
-//    },
     computed: {
-      ...mapState(['newGoods', 'currentIndex'])
+      ...mapState(['newGoods', 'currentIndex', 'clickmore', 'ninegoods'])
     },
 
     methods: {
       ...mapMutations(['stop', 'slide', 'last', 'next']),
-      ...mapActions(['beginnext'])
+      ...mapActions(['beginnext', 'more'])
     },
     components: {
       good
@@ -116,6 +111,9 @@
   }
   .newgoods .more {
     display: inline-block;
-    margin:50px 0 0 480px;
+    margin-top: 10px;
+  }
+  .newgoods .more img {
+    cursor: pointer;
   }
 </style>
