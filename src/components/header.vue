@@ -33,7 +33,6 @@
 
 <script>
   import store from '@/vuex/store.js'
-//  import { mapState } from 'vuex'
   export default {
     name: 'header',
     data () {
@@ -42,7 +41,6 @@
       }
     },
     computed: {
-//      ...mapState(['userName'])
       userName () {
         return this.$store.state.head.userName
       }

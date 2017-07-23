@@ -3,6 +3,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
+  // 注册组件
+  sigUp: {
+    userName: '',
+    userPassword: '',
+    reUserPassword: '',
+    email: '',
+    qq: ''
+  },
   // header组件
   head: {
     userName: ''
@@ -17,9 +25,166 @@ const state = {
   newGoods: [],
   ninegoods: [],
   timer: '',
-  currentindex: 0
+  currentindex: 0,
+  // study
+  studyGoods: [
+    {
+      'gid': '81dc052e12f140f697167465b2db6325',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '全新史记（套装共四册）',
+      'goodSort': '图书笔记',
+      'goodPrice': 112,
+      'sellerTel': '15523336666',
+      'goodDesc': '遨游历史的天空！一起读史记！',
+      'goodPicture0': '8/81dc052e12f140f697167465b2db6325-0.jpg',
+      'goodPicture1': '8/81dc052e12f140f697167465b2db6325-1.jpg',
+      'goodPicture2': '8/81dc052e12f140f697167465b2db6325-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695378000
+    },
+    {
+      'gid': 'f650c70b33f94e1dba67f3018e757226',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '毛绒玩具',
+      'goodSort': '其它',
+      'goodPrice': 30,
+      'sellerTel': '13833551234',
+      'goodDesc': '原价100，急用钱。求秒！',
+      'goodPicture0': 'f/f650c70b33f94e1dba67f3018e757226-0.jpg',
+      'goodPicture1': 'f/f650c70b33f94e1dba67f3018e757226-1.jpg',
+      'goodPicture2': 'f/f650c70b33f94e1dba67f3018e757226-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695270000
+    },
+    {
+      'gid': '81dc052e12f140f697167465b2db6325',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '全新史记（套装共四册）',
+      'goodSort': '图书笔记',
+      'goodPrice': 112,
+      'sellerTel': '15523336666',
+      'goodDesc': '遨游历史的天空！一起读史记！',
+      'goodPicture0': '8/81dc052e12f140f697167465b2db6325-0.jpg',
+      'goodPicture1': '8/81dc052e12f140f697167465b2db6325-1.jpg',
+      'goodPicture2': '8/81dc052e12f140f697167465b2db6325-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695378000
+    },
+    {
+      'gid': 'f650c70b33f94e1dba67f3018e757226',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '毛绒玩具',
+      'goodSort': '其它',
+      'goodPrice': 30,
+      'sellerTel': '13833551234',
+      'goodDesc': '原价100，急用钱。求秒！',
+      'goodPicture0': 'f/f650c70b33f94e1dba67f3018e757226-0.jpg',
+      'goodPicture1': 'f/f650c70b33f94e1dba67f3018e757226-1.jpg',
+      'goodPicture2': 'f/f650c70b33f94e1dba67f3018e757226-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695270000
+    },
+    {
+      'gid': '81dc052e12f140f697167465b2db6325',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '全新史记（套装共四册）',
+      'goodSort': '图书笔记',
+      'goodPrice': 112,
+      'sellerTel': '15523336666',
+      'goodDesc': '遨游历史的天空！一起读史记！',
+      'goodPicture0': '8/81dc052e12f140f697167465b2db6325-0.jpg',
+      'goodPicture1': '8/81dc052e12f140f697167465b2db6325-1.jpg',
+      'goodPicture2': '8/81dc052e12f140f697167465b2db6325-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695378000
+    },
+    {
+      'gid': 'f650c70b33f94e1dba67f3018e757226',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '毛绒玩具',
+      'goodSort': '其它',
+      'goodPrice': 30,
+      'sellerTel': '13833551234',
+      'goodDesc': '原价100，急用钱。求秒！',
+      'goodPicture0': 'f/f650c70b33f94e1dba67f3018e757226-0.jpg',
+      'goodPicture1': 'f/f650c70b33f94e1dba67f3018e757226-1.jpg',
+      'goodPicture2': 'f/f650c70b33f94e1dba67f3018e757226-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695270000
+    },
+    {
+      'gid': '81dc052e12f140f697167465b2db6325',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '全新史记（套装共四册）',
+      'goodSort': '图书笔记',
+      'goodPrice': 112,
+      'sellerTel': '15523336666',
+      'goodDesc': '遨游历史的天空！一起读史记！',
+      'goodPicture0': '8/81dc052e12f140f697167465b2db6325-0.jpg',
+      'goodPicture1': '8/81dc052e12f140f697167465b2db6325-1.jpg',
+      'goodPicture2': '8/81dc052e12f140f697167465b2db6325-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695378000
+    },
+    {
+      'gid': 'f650c70b33f94e1dba67f3018e757226',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '毛绒玩具',
+      'goodSort': '其它',
+      'goodPrice': 30,
+      'sellerTel': '13833551234',
+      'goodDesc': '原价100，急用钱。求秒！',
+      'goodPicture0': 'f/f650c70b33f94e1dba67f3018e757226-0.jpg',
+      'goodPicture1': 'f/f650c70b33f94e1dba67f3018e757226-1.jpg',
+      'goodPicture2': 'f/f650c70b33f94e1dba67f3018e757226-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695270000
+    },
+    {
+      'gid': '81dc052e12f140f697167465b2db6325',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '全新史记（套装共四册）',
+      'goodSort': '图书笔记',
+      'goodPrice': 112,
+      'sellerTel': '15523336666',
+      'goodDesc': '遨游历史的天空！一起读史记！',
+      'goodPicture0': '8/81dc052e12f140f697167465b2db6325-0.jpg',
+      'goodPicture1': '8/81dc052e12f140f697167465b2db6325-1.jpg',
+      'goodPicture2': '8/81dc052e12f140f697167465b2db6325-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695378000
+    },
+    {
+      'gid': 'f650c70b33f94e1dba67f3018e757226',
+      'userName': 'yanni',
+      'status': 1,
+      'goodName': '毛绒玩具',
+      'goodSort': '其它',
+      'goodPrice': 30,
+      'sellerTel': '13833551234',
+      'goodDesc': '原价100，急用钱。求秒！',
+      'goodPicture0': 'f/f650c70b33f94e1dba67f3018e757226-0.jpg',
+      'goodPicture1': 'f/f650c70b33f94e1dba67f3018e757226-1.jpg',
+      'goodPicture2': 'f/f650c70b33f94e1dba67f3018e757226-2.jpg',
+      'clickCount': 0,
+      'publishTime': 1500695270000
+    }
+  ]
 }
 const mutations = {
+  // 登录
+  updateSigup (state, message) {
+    state.sigUp = message
+  },
   //  oldgoods
   showActive (state, index) {
     state.active = index
@@ -83,7 +248,7 @@ const actions = {
     }).then((res) => res.json())
       .then((json) => {
         console.log(json)
-        context.state.newGoods = json
+        context.state.newGoods = json.data
       })
   }
 }

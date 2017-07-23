@@ -62,6 +62,7 @@
   .register {
     margin: 0 auto;
     margin-bottom: -170px;
+    margin-top: -40px;
     height: 750px;
     background: url("../img/register/register_bg.png") center no-repeat;
   }

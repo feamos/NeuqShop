@@ -8,12 +8,12 @@ import signIn from '../components/signIn.vue'
 import signUp from '../components/signUp.vue'
 // import searchgoods from '@/components/search_goods/search_goods.vue'
 import study from '@/components/study.vue'
-// import life from '@/components/life/life.vue'
-// import sport from '@/components/sport/sport.vue'
-// import clothes from '@/components/clothes/clothes.vue'
-// import hat from '@/components/hat/hat.vue'
-// import food from '@/components/food/food.vue'
-// import other from '@/components/other/other.vue'
+import life from '@/components/life.vue'
+import sport from '@/components/sport.vue'
+import clothes from '@/components/clothes.vue'
+import hat from '@/components/hat.vue'
+import food from '@/components/food.vue'
+import other from '@/components/other.vue'
 
 Vue.use(Router)
 
@@ -41,13 +41,13 @@ export default new Router({
       children: [
         {path: '/', component: newgoods},
         // {path: '/search', component:searchgoods},
-        {path: '/study', component: study}
-        // {path: '/life', component:life},
-        // {path: '/sport', component:sport},
-        // {path: '/clothes', component:clothes},
-        // {path: '/hat', component:hat},
-        // {path: '/food', component:food},
-        // {path: '/other', component:other}
+        {path: '/study', component: study},
+        {path: '/life', component: life},
+        {path: '/sport', component: sport},
+        {path: '/clothes', component: clothes},
+        {path: '/hat', component: hat},
+        {path: '/food', component: food},
+        {path: '/other', component: other}
       ]
     }
   ]

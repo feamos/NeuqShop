@@ -12,7 +12,7 @@
             <router-link to="/study">
               <div  @mouseenter="showActive(1)"  @click="selectActive(1)"   @mouseleave="hideActive()">
                 <img src="../img/goods/study.png" alt="学习">
-                <img v-show="active === 1 || current === 1" class="hide_tab" src="../img/goods/study_1.png" alt="学习">
+                <img v-show="active === 1 || index === 1" class="hide_tab" src="../img/goods/study_1.png" alt="学习">
               </div>
             </router-link>
           </li>
@@ -20,7 +20,7 @@
             <router-link to="/life">
               <div @mouseenter="showActive(2)"  @click="selectActive(2)" @mouseleave="hideActive()">
                 <img src="../img/goods/life.png" alt="生活">
-                <img v-show="active === 2 || current === 2" class="hide_tab" src="../img/goods/life_1.png" alt="生活">
+                <img v-show="active === 2 || index === 2" class="hide_tab" src="../img/goods/life_1.png" alt="生活">
               </div>
             </router-link>
           </li>
@@ -28,7 +28,7 @@
             <router-link to="/sport">
               <div @mouseenter="showActive(3)"   @click="selectActive(3)" @mouseleave="hideActive()">
                 <img src="../img/goods/sport.png" alt="运动">
-                <img v-show="active === 3 || current === 3" class="hide_tab" src="../img/goods/sport_1.png" alt="运动">
+                <img v-show="active === 3  || index === 3" class="hide_tab" src="../img/goods/sport_1.png" alt="运动">
               </div>
             </router-link>
           </li>
@@ -36,7 +36,7 @@
             <router-link to="/clothes">
               <div @mouseenter="showActive(4)"  @click="selectActive(4)" @mouseleave="hideActive()">
                 <img src="../img/goods/clothes.png" alt="服饰">
-                <img v-show="active === 4 || current === 4" class="hide_tab" src="../img/goods/clothes_1.png" alt="服饰">
+                <img v-show="active === 4 || index === 4" class="hide_tab" src="../img/goods/clothes_1.png" alt="服饰">
               </div>
             </router-link>
           </li>
@@ -44,7 +44,7 @@
             <router-link to="/hat">
               <div @mouseenter="showActive(5)"   @click="selectActive(5)" @mouseleave="hideActive()">
                 <img src="../img/goods/hat.png" alt="鞋帽">
-                <img v-show="active === 5 || current === 5" class="hide_tab" src="../img/goods/hat_1.png" alt="鞋帽">
+                <img v-show="active === 5 || index === 5" class="hide_tab" src="../img/goods/hat_1.png" alt="鞋帽">
               </div>
             </router-link>
           </li>
@@ -52,7 +52,7 @@
             <router-link to="/food">
               <div @mouseenter="showActive(6)"  @click="selectActive(6)" @mouseleave="hideActive()">
                 <img src="../img/goods/food.png" alt="食品">
-                <img v-show="active === 6 || current === 6" class="hide_tab" src="../img/goods/food_1.png" alt="食品">
+                <img v-show="active === 6 || index === 6" class="hide_tab" src="../img/goods/food_1.png" alt="食品">
               </div>
             </router-link>
           </li>
@@ -60,7 +60,7 @@
             <router-link to="/other">
               <div @mouseenter="showActive(7)"   @click="selectActive(7)" @mouseleave="hideActive()">
                 <img src="../img/goods/other.png" alt="其它">
-                <img v-show="active === 7 || current === 7" class="hide_tab" src="../img/goods/other_1.png" alt="其他">
+                <img v-show="active === 7  || index === 7" class="hide_tab" src="../img/goods/other_1.png" alt="其他">
               </div>
             </router-link>
           </li>
@@ -73,28 +73,14 @@
 </template>
 
 <script>
-  import store from '@/vuex/store.js'
+  import store from '../vuex/store'
   import { mapState, mapMutations, mapActions } from 'vuex'
   export default {
-    name: 'oldgoods',
-    data () {
-      return {
-        msg: 'old goods'
-      }
-    },
     mounted () {
       this.huode()
     },
     computed: {
-      ...mapState(['searchtext', 'active', 'index']),
-      current () {
-        let path = this.$route.path.slice(1)
-        if (path === 'goods') {
-          return 0
-        } else {
-          return this.index
-        }
-      }
+      ...mapState(['searchtext', 'active', 'index'])
     },
     methods: {
       ...mapMutations(['showActive', 'selectActive', 'hideActive']),

@@ -71,15 +71,19 @@
     font-size: 18px;
     padding-left: 5px;
     text-align: right;
-    width:47%;
+    width:44%;
     display: inline-block;
     color: blue;
     height: 35px;
     line-height: 35px;
   }
+  .nameAndPrice span:last-child {
+    vertical-align: top;
+  }
   .nameAndPrice .nameleft {
     padding-left: 5px;
     text-align: left;
+    overflow: hidden;
   }
 
   .goodType {
