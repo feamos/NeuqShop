@@ -9,7 +9,7 @@
         <router-link to="/oldgoods" tag="span">二手</router-link>
       </li>
       <li class="tab-item">
-        <router-link to="/messages" tag="span">留言</router-link>
+        <router-link to="/message" tag="span">留言</router-link>
       </li>
       <li class="tab-item">
         <router-link to="/lost" tag="span">寻物</router-link>
@@ -89,7 +89,7 @@
   .login a,.user a {
     margin-left: 10px;
   }
-  @media (max-height: 800px),(max-width:1000px) {
+  @media (max-height: 768px) and (max-width:1366px) {
     .brand{
       padding-right: 0px;
     }

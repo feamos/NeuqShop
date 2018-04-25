@@ -28,7 +28,8 @@
     width:1300px;
     overflow: hidden;
     float: left;
-    padding-left: 320px;
+    margin-left: 320px;
+    padding-top: 40px;
   }
 
   ul {

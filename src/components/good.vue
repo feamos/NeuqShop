@@ -16,8 +16,8 @@
       <a href=""><img src="../img/good/dim_bg.png" alt=""></a>
       <div class="detailDesc">
         <a href="" class="descTitle">详细描述</a>
-        <a href="" class="desc" v-show="!goodDetail.desc">主人太懒啦，什么也没有留下~</a>
-        <a href="" class="desc" v-show="goodDetail.desc">{{goodDetail.Desc}}</a>
+        <a href="" class="desc" v-show="!goodDetail.goodDesc">主人太懒啦，什么也没有留下~</a>
+        <a href="" class="desc" v-show="goodDetail.goodDesc">{{goodDetail.goodDesc}}</a>
       </div>
     </div>
   </div>
@@ -60,7 +60,7 @@
   }
   .nameAndPrice {
     position: absolute;
-    bottom: 1.3rem;
+    bottom: 6px;
     left: 0;
     width: 340px;
     height: 35px;
@@ -130,4 +130,5 @@
     color: #3e3e3e;
     line-height: 2.8rem;
   }
+
 </style>

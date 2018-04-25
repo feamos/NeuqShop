@@ -30,7 +30,7 @@
         <input type="text" id="qq" name="qq" placeholder="方便与别人直接QQ联系~" v-model="sigUp.qq">
       </div>
       <div class='btn_sig'>
-        <span @click="shuchu"></span>
+        <span @click="sigup"></span>
       </div>
     </form>
   </div>
@@ -40,7 +40,7 @@
   import regx from '../common/js/regx'
   //  import router from '../../router';
   import store from '../vuex/store'
-  import { mapMutations, mapState } from 'vuex'
+  import { mapActions } from 'vuex'
   export default{
     data () {
       return {
@@ -48,12 +48,11 @@
         passtext: '6-18位密码',
         confirmpasstext: '确认密码',
         mail: true,
-        mailtext: '格式：*@*.com'
+        mailtext: '格式：*@*.com',
+        isSignup: false
       }
     },
     computed: {
-      ...mapState(['sigUp']),
-      ...mapMutations(['updateUsername']),
       sigUp: {
         get () {
           return this.$store.state.sigUp
@@ -64,9 +63,11 @@
       }
     },
     methods: {
+      ...mapActions(['sigup']),
       checkName () {
         if (regx.userName.test(this.sigUp.userName)) {
           this.nametext = '用户名可用'
+          this.isSignUp = true
         } else {
           this.nametext = '用户名格式不正确'
         }
@@ -74,43 +75,27 @@
       checkPass () {
         if (this.sigUp.userName === '') {
           this.passtext = '请输入密码'
+          this.isSignUp = false
         } else if (regx.userPassword.test(this.sigUp.userPassword)) {
           this.passtext = '密码可用'
+          this.isSignUp = true
         } else if (this.sigUp.userPassword.length < 6) {
           this.passtext = '密码太短'
+          this.isSignUp = false
         } else {
           this.passtext = '密码太长'
+          this.isSignUp = false
         }
         if (this.sigUp.reUserPassword !== this.sigUp.userPassword) {
           this.confirmpasstext = '两次输入密码不一致'
+          this.isSignUp = false
         } else if (this.sigUp.reUserPassword) {
           this.confirmpasstext = '输入正确'
+          this.isSignUp = true
         }
-      },
-      shuchu () {
-        console.log(this.sigUp)
       }
     },
     store
-//    methods: {
-//      signUp () {
-//        this.$validator.validateAll().then( () => {
-//          this.formData = $(".form").serialize();
-//          this.$http.post("http://neuq.shop/my/RegistServlet", this.formData)
-//            .then(data => {
-//              this.data = data;
-//              router.push({
-//                path: '/signIn'
-//              })
-//            })
-//            .catch(error => {
-//              console.log(error);
-//            });
-//        }).catch( () => {
-//          alert('请检查表单')
-//        })
-//      }
-//    }
   }
 </script>
 

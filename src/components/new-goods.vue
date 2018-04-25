@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="new-goods">
     <div class="slidebanner clearfix" @mouseenter="stop" @mouseleave.stop="beginnext">
       <span class="left_icon" @click="last"><img src="../img/goods/left.png" alt=""></span>
       <div class="banner_wrapper">
@@ -58,6 +58,10 @@
     position: relative;
   }
 
+  .new-goods {
+    margin-top: 50px;
+  }
+
   span {
     line-height: 340px;
     cursor: pointer;
@@ -82,6 +86,7 @@
     overflow: hidden;
     float: left;
     padding-left: 50px;
+    margin-left: 20px;
   }
 
   ul {
@@ -92,7 +97,7 @@
 
   ul li {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 10px;
   }
   .newgoods {
     width: 1060px;
@@ -115,5 +120,7 @@
   }
   .newgoods .more img {
     cursor: pointer;
+  }
+  @media (max-width:1000px) {
   }
 </style>

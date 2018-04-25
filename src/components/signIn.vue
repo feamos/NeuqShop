@@ -5,13 +5,13 @@
     <form action="http://localhost/my/LoginServlet" class="form">
       <div class="username">
         <input type="text" placeholder="用户名/邮箱" name="userName"
-               onfocus="this.placeholder=''" onblur="this.placeholder='用户名/邮箱'">
+               onfocus="this.placeholder=''" onblur="this.placeholder='用户名/邮箱'" v-model="sigIn.userName">
         <p class="warn">用户名/邮箱不存在！</p>
       </div>
 
       <div>
         <input type="password" placeholder="密码" name="userPassword"
-               onfocus="this.placeholder=''" onblur="this.placeholder='密码'">
+               onfocus="this.placeholder=''" onblur="this.placeholder='密码'" v-model="sigIn.userPassword">
         <p class="warn" >密码错了,再想想吧~</p>
       </div>
 
@@ -23,7 +23,7 @@
       </div>
 
       <div class='btn_log'>
-        <span></span>
+        <span @click="btn_sigin"></span>
       </div>
       <div class="footer">
         <router-link to="/signUp"><span @click="changeState" class="routerToSignUp">竟然还没有账号？速去注册>></span></router-link>
@@ -34,45 +34,70 @@
 </template>
 
 <script type="text/javascript">
-  import router from '../router'
+//  import router from '../router'
+  import store from '../vuex/store'
   export default{
 
     data () {
       return {
-        formData: '',
-        userName: '',
-        userHead: ''
       }
     },
-
+    computed: {
+      sigIn: {
+        get () {
+          return this.$store.state.sigIn
+        },
+        set (value) {
+          this.$store.commit('updateSigin', value)
+        }
+      }
+    },
     methods: {
       // 用户点击“快速去注册”触发父组件(register.vue)的事件
       changeState () {
         this.$emit('changeState')
       },
-
-      // 登录后获得用户名和用户头像
-      signIn () {
-        // this.errors.add('userName', '用户名/邮箱不存在');
-//        this.formData = $(".form").serialize();
-        this.$http.post('http://localhost/my/LoginServlet', this.formData)
-          .then(response => {
-            console.log(response)
-            this.userName = response.data[0].userName
-            //  that.userHead = response.data.data.userHead;
-            //  触发父组件(register)给App.vue传值
-            this.$emit('userSignIn', this.userName)
-            //  路由到主页
-            router.push({
-              path: '/'
-            })
-          })
-          .catch(error => {
-            console.log(error)
+      // 登录
+      btn_sigin () {
+        console.log(this.$store.state.sigIn)
+        let userData = {
+          userName: this.sigIn.userName,
+          userPassword: this.sigIn.userPassword
+        }
+        fetch('http://192.168.1.103:8080/campus/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        }).then((res) => res.json())
+          .then((json) => {
+            this.$store.state.head.userName = this.sigIn.userName
           })
       }
-    }
 
+//      // 登录后获得用户名和用户头像
+//      signIn () {
+//        // this.errors.add('userName', '用户名/邮箱不存在');
+//        this.formData = $(".form").serialize();
+//        this.$http.post('http://localhost/my/LoginServlet', this.formData)
+//          .then(response => {
+//            console.log(response)
+//            this.userName = response.data[0].userName
+//            //  that.userHead = response.data.data.userHead;
+//            //  触发父组件(register)给App.vue传值
+//            this.$emit('userSignIn', this.userName)
+//            //  路由到主页
+//            router.push({
+//              path: '/'
+//            })
+//          })
+//          .catch(error => {
+//            console.log(error)
+//          })
+//      }
+    },
+    store
   }
 </script>
 
